@@ -1,0 +1,69 @@
+<!-- author: Jennifer Wu -->
+
+<div class="question" id="{{_id}}" data-type="{{type}}"> 
+	<label for="{{@index}}" class="control-label">{{question}}</label>
+	{{#if required}}
+		<span class="required">*</span>
+	{{else}}
+	{{/if}}
+
+	{{#equal type "text"}}	
+		<textarea 
+			{{#if isInProgress}} 
+			{{else}}
+				disabled
+			{{/if}}
+			
+			{{#if required}}
+				required
+			{{else}}
+			{{/if}}
+			
+			class="form-control" name="{{_id}}">{{answer}}</textarea>
+	{{/equal}}
+
+	{{#equal type "dropdown"}}
+		<input 
+			type="text"
+			name="{{_id}}"
+			id="{{@index}}" 
+			class="typeahead form-control"
+			{{#if required}}
+				required
+			{{else}}
+			{{/if}}
+			{{#if isInProgress}} 
+			{{else}}
+				disabled
+			{{/if}}" 
+			data-options="{{toJson options}}" 
+			data-answer="{{answer}}">
+	{{/equal}}
+
+	{{#equal type "radio"}}
+		<input 
+			type="radio" name="{{_id}}" value=""
+			{{#equal answer ""}}
+				checked
+			{{/equal}} style="display:none">
+
+		<input 
+			type="radio" name="{{_id}}" value="yes"
+			{{#if isInProgress}} 
+			{{else}}
+				disabled
+			{{/if}}
+			{{#equal answer "yes"}}
+				checked
+			{{/equal}}>Yes
+		<input 
+			type="radio" name="{{_id}}" value="no"
+			{{#if isInProgress}} 
+			{{else}}
+				disabled
+			{{/if}}
+			{{#equal answer "no"}}
+				checked
+			{{/equal}}>No
+	{{/equal}}
+</div>

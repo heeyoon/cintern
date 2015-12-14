@@ -1,0 +1,12 @@
+<!-- author: Heeyoon Kim -->
+
+{{#in userListings _id}}
+  <tr class="unclickable" data-listing-id={{_id}} data-listing-company={{employer.company}}>
+{{else}}
+  <tr class="clickable s-listing" data-listing-id={{_id}} data-listing-company={{employer.company}}>
+{{/in}}
+
+  <td>{{employer.company}}</td>
+  <td>{{title}}</td>
+  <td>{{formatDate deadline}}</td>
+</tr>

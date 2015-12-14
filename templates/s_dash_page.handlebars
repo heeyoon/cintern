@@ -1,0 +1,49 @@
+<!-- author: Heeyoon Kim -->
+
+<div class="error" id = "s-dash-error"></div>
+
+<div>
+
+  <!-- Custom Modal -->
+  <div class="modal fade" id="customModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="custom-modal-header"></h4>
+        </div>
+        <div class="modal-body" id="custom-modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <h2>Welcome!</h2>
+  <p>You currently have {{apps.length}} applications. Remember you can only be submitted to up to 40 listings.</p>
+
+  <br>
+  
+  {{> filter_bar}}
+  
+  <table class="table table-hover table-condensed tablesorter" id="s-dash-table">
+  	
+    <thead class="clickable-headers">
+  	  <th>Company</th>
+  	  <th>Title</th>
+      <th>Deadline</th>
+      <th>Submitted Time</th>
+  	  <th>Status</th>
+  	</thead>
+
+    <tbody class="searchable">
+      {{#each apps}}
+        {{> s_dash_page_app this }} 
+        
+      {{else}}
+        <tr>
+        	<td>No applications yet!</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  
+  </table>
+</div>

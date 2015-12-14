@@ -1,0 +1,65 @@
+<!-- author: Maddie Dawson -->
+
+<div>
+  <a href="/" id="home-link">Back to Dash</a>
+
+  <div class="error" id="e-applicants-error"></div>
+
+  <!-- Applicant Modal -->
+  <div class="modal fade" id="applicantModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" data-listing-id="{{listingId}}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="applicant-modal-header"></h4>
+        </div>
+        <div class="modal-body" id="applicant-modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <h2>Applicants</h2>
+  
+  <p>Currently {{applicants.length}} students have applied to this listing.</p>
+
+  {{> filter_bar}}
+
+  <form action="/process" method="POST" id="star-app-form" data-listing-id={{listingId}}>
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+    <table class="table table-hover table-condensed tablesorter" id="e-applicants-table">
+      
+      <thead class="clickable-headers">
+
+        <!-- header for star -->
+        <th></th>
+
+        {{#each headers as |h|}}
+          <th>{{h}}</th>
+        {{/each}}
+
+        <th>Submit Time</th>
+
+      </thead>
+      
+      <tbody class="searchable">
+
+        {{#each applicants}}
+          {{> applicant this listing=../listingId headers=../headers csrfToken=../csrfToken}}
+        {{else}}
+          <tr>
+            <td>No applicants have applied yet.</td>
+          </tr>
+        {{/each}}
+
+      </tbody>
+
+    </table>
+  </form>
+
+  <form action="/process" method="POST" id="delete-listing-form" data-listing-id={{listingId}}>
+    <input type="hidden" name="_csrf" value="{{csrfToken}}">
+    <input type="submit" class="btn btn-primary" id="delete-listing-btn" value="Delete Listing"/>
+  </form>
+</div>

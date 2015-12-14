@@ -1,0 +1,58 @@
+<!-- author: Jennifer Wu -->
+
+<div class="error" id = "s-listing-error"></div>
+
+<label>Company: </label> {{company}}
+<br>
+<label>Position Title: </label> {{title}}
+<br>
+<label>Deadline:</label> {{formatDate deadline}}
+<br>
+<br>
+
+<div class="panel-group" id="full-app-accordion">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#full-app-accordion" href="#description-panel">
+					Description
+				</a>
+			</h4>
+		</div>
+		<div id="description-panel" class="panel-collapse collapse">
+			<div class="panel-body">
+				<label>Description:</label>
+				<p>{{description}}</p>
+
+				<br>
+				<label>Requirements:</label>
+				<p>{{requirements}}</p>
+
+				<br>
+				
+			</div>
+		</div>
+	</div>
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<h4 class="panel-title">
+				<a class="accordion-toggle" data-toggle="collapse" data-parent="#full-app-accordion" href="#template-panel">
+					Application
+				</a>
+			</h4>
+		</div>
+		<div id="template-panel" class="panel-collapse collapse">
+			<div class="panel-body">
+				{{> application application isSubmitted=true isCommon=false}}
+			</div>
+		</div>
+	</div>		
+</div>
+
+<form action="/process" method="POST" id="add-custom-form" data-listing-id={{_id}}>
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+	<button type="submit" class="btn btn-primary">
+		<span class="glyphicon glyphicon-plus"></span> Add to my list
+	</button>
+</form>

@@ -1,0 +1,9 @@
+<!-- author: Jennifer Wu and Lynda Tang -->
+
+{{#each questions}}
+	<div class="form-group">
+		{{> question this isInProgress=../isInProgress}}
+	</div>
+{{else}}
+	<p>No Questions!</p>
+{{/each}}

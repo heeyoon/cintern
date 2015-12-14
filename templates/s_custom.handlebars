@@ -1,0 +1,21 @@
+<!-- author: Jennifer Wu -->
+
+<div class="error" id = "s-custom-error"></div>
+
+<form action="/process" method="POST" id="submit-custom-form" data-custom-id="{{customId}}" data-listing-id="{{listing}}">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+	{{> application this}}
+	{{#equal state "save"}}
+		<button type="button" id="save-custom-btn" class="btn btn-primary" >Save</button>
+		<input type="submit" class="btn btn-primary"/>
+	{{/equal}}
+
+	{{#equal state "save"}}
+		<button type="button" id="delete-custom-btn" class="pull-right btn btn-danger" data-custom-id="{{customId}}"><span class='glyphicon glyphicon-trash'></span> Delete</button>
+	{{/equal}}
+
+	{{#equal state "subm"}}
+		<button type="button" id="withdraw-custom-btn" class="pull-right btn btn-danger" data-custom-id="{{customId}}">Withdraw</button>
+	{{/equal}}
+</form>
+

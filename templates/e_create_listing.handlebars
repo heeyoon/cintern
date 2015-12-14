@@ -1,0 +1,82 @@
+<!-- author: Jennifer Wu and Lynda Tang -->
+ 
+<div class="error" id = "e-create-listing-error"></div>
+
+<form action="/process" method="POST" id="create-listing">
+	<input type="hidden" name="_csrf" value="{{csrfToken}}">
+
+	<label>Position Title:</label>
+	<span class="required">*</span>
+	<input class="form-control" type="text" name="title" required>
+
+    <label>Deadline:</label>
+	<span class="required">*</span>
+	<div class='form-group input-group date' id='datetimepicker1'>
+	    <input type='text' class="form-control" name="deadline" required/>
+	    <span class="input-group-addon">
+	        <span class="glyphicon glyphicon-calendar"></span>
+	    </span>
+	</div>
+	
+	<div class="panel-group" id="create-listing-accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#create-listing-accordion" href="#optional-info-panel">
+						Optional Listing Information
+					</a>
+				</h4>
+			</div>
+			<div id="optional-info-panel" class="panel-collapse collapse">
+				<div class="panel-body">
+					<label>Description:</label>
+					<textarea 
+						rows="8" 
+						name="description" 
+						class="form-control"
+						placeholder="Enter description here..."></textarea>
+
+					<label>Requirements:</label>
+					<textarea 
+						rows="8" 
+						name="requirements" 
+						class="form-control"
+						placeholder="Enter requirements here..."></textarea>
+				</div>
+			</div>
+		</div>
+
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#create-listing-accordion" href="#questions-panel">
+						Custom Questions
+					</a>
+				</h4>
+			</div>
+			<div id="questions-panel" class="panel-collapse collapse">
+				<div class="panel-body">
+					<div>
+
+						<div id="question-list"></div>
+						<div class="pull-right dropdown-hover">
+							<!-- trigger button -->
+						    <button type="button" class="btn btn-primary">
+						    	<span class="glyphicon glyphicon-plus"></span> Add Question
+						    </button>
+
+						    <!-- dropdown menu -->
+						    <ul class="dropdown-menu">
+						        <li class="clickable"><a id="add-text-question">Text Question</a></li>
+						        <li class="clickable"><a id="add-radio-question">Yes or No Question</a></li>
+						    </ul>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+       
+	<button type="submit" class="btn btn-primary">Submit</button>
+
+</form>

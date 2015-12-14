@@ -1,0 +1,37 @@
+<!-- author: Jennifer Wu -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/typeahead.css' />
+    <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="/bower_components/typeahead.js/dist/typeahead.jquery.js"></script>
+    <script src="/javascripts/handlebars.runtime-v4.0.2.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="/javascripts/jquery.tablesorter.js"></script>
+    <script src="/javascripts/tablesorterHelpers.js"></script>
+    <script src="/javascripts/templates.js"></script>
+    <script src="/javascripts/helpers.js"></script>
+    <script src="/javascripts/general.js"></script>
+    <script src="/javascripts/sIndex.js"></script>
+    <script src="/javascripts/filter.js"></script>
+  </head>
+  <body>
+    <img class="bg" src="/stylesheets/images/background.jpg">
+    <div class="layer">
+      <button id="logout-btn" class="btn btn-primary pull-right">Logout</button>
+
+      <ul class="nav nav-tabs clickable" id="main-menu">
+        <li role="presentation" class="active" data-toggle="tab" id="dash-nav"><a>Dash</a></li>
+        <li role="presentation" data-toggle="tab" id="listing-nav"><a>All Listings</a></li>
+        <li role="presentation" data-toggle="tab" id="common-nav"><a>Common</a></li>
+      </ul>
+
+      <div id="s-main-container"></div>	   
+    </div>
+  </body>
+</html>

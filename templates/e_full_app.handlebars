@@ -1,0 +1,60 @@
+<!-- author: Jennifer Wu -->
+
+<div class="full-app">
+	<div class="error" id = "e-full-app-error"></div>
+
+	<div class="pull-right">
+		<form action="/process" method="POST" id="change-status-form">
+			<input type="hidden" name="_csrf" value="{{csrfToken}}">
+			{{#if isStar}}
+				<button type="button" class="unstar-custom-btn btn btn-default" data-custom-id="{{customId}}" data-listing-id="{{listing._id}}" data-user-id="{{owner._id}}">
+					<span class='glyphicon glyphicon-star center star'></span>
+				</button>
+			{{else}}
+				<button type="button" class="star-custom-btn btn btn-default" data-custom-id="{{customId}}" data-listing-id="{{listing._id}}" data-user-id="{{owner._id}}">
+					<span class='glyphicon glyphicon-star center unstar'></span>
+				</button>
+			{{/if}}
+
+			<button type="button" id="reject-custom-btn" class="btn btn-danger" data-custom-id="{{customId}}" data-listing-id="{{listing._id}}" data-user-id="{{owner._id}}">
+				Reject
+			</button>
+		</form>
+	</div>
+
+	<label>Email:</label> {{owner.email}}
+
+	<br>
+	<br>
+
+	<div class="panel-group" id="full-app-accordion">
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#full-app-accordion" href="#common-panel">
+						Common Application
+					</a>
+				</h4>
+			</div>
+			<div id="common-panel" class="panel-collapse collapse">
+				<div class="panel-body">
+					{{> application common isSubmitted=isSubmitted isCommon=true}}
+				</div>
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<h4 class="panel-title">
+					<a class="accordion-toggle" data-toggle="collapse" data-parent="#full-app-accordion" href="#custom-panel">
+						Custom Application
+					</a>
+				</h4>
+			</div>
+			<div id="custom-panel" class="panel-collapse collapse">
+				<div class="panel-body">
+					{{> application custom isSubmitted=isSubmitted isCommon=false}}
+				</div>
+			</div>
+		</div>		
+	</div>
+</div>

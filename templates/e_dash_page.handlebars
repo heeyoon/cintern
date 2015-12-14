@@ -1,0 +1,49 @@
+<!-- author: Maddie Dawson -->
+
+<div>
+  <h2>Welcome!</h2>
+
+  <button class="btn btn-primary pull-right" data-toggle="modal" data-target="#new-listing-modal">
+    <span class="glyphicon glyphicon-plus"></span> Add New Listing
+  </button>
+  
+  <!-- New Listing Modal -->
+  <div class="modal fade" id="new-listing-modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title">New Listing</h4>
+        </div>
+        <div class="modal-body" id="new-listing-modal-content"></div>
+      </div>
+    </div>
+  </div>
+
+  <p>Here are your listings:</p>
+
+  <br>
+  <br>
+
+  {{> filter_bar}}
+
+  <table class="table table-hover table-condensed tablesorter" id="e-dash-table">
+
+    <thead class="clickable-headers">
+  	  <th>Title</th>
+      <th>Number of applicants</th>
+      <th>Deadline</th>
+  	</thead>
+
+    <tbody class="searchable">
+      {{#each listings as |l|}}
+        {{> e_dash_page_listing listing=l listingid=l._id numApplicantsMap=../numApplicantsMap}}
+      {{else}}
+        <tr>
+        	<td>No listings yet!</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  
+  </table>
+</div>

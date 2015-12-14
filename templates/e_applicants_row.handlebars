@@ -1,0 +1,21 @@
+<!-- author: Maddie Dawson -->
+
+<tr class="clickable" data-applicant-id="{{owner}}" data-listing-id="{{listing}}" data-custom-id="{{_id}}">
+	{{#if isStar}}
+		<td class="unstar-applicant-cell" tooltip="Unstar">
+			<span class="hidden">1</span>
+			<span class="glyphicon glyphicon-star star small-star"></span>
+		</td>
+	{{else}}
+		<td class="star-applicant-cell" tooltip="Star">
+			<span class="hidden">0</span>
+			<span class="glyphicon glyphicon-star center unstar small-star"></span>
+		</td>
+	{{/if}}
+
+	{{#each headers}}
+  		<td class="applicant-cell">{{getValue ../this this}}</td>
+	{{/each}}
+
+	<td class="applicant-cell">{{formatDate submitTime}}</td>
+</tr>

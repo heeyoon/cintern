@@ -1,0 +1,18 @@
+<!-- author: Jennifer Wu -->
+
+<div class="error" id = "s-common-error"></div>
+
+<div>
+
+	<h2>Common Application</h2>
+
+	<form action="/process" method="POST" id="submit-common-form">
+		<input type="hidden" name="_csrf" value="{{csrfToken}}">
+		{{> application this}}
+		{{#if isInProgress}}
+			<input type="submit" class="btn btn-primary"/>
+		{{else}}
+		{{/if}}
+	</form>
+	
+</div>

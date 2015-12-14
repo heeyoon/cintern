@@ -1,0 +1,21 @@
+<!-- author: Heeyoon Kim -->
+
+{{#deadlineNotPassed listing.deadline}}  
+  <tr class="clickable student-custom" data-listing-id="{{listing._id}}">
+{{else}}
+	<tr class="clickable student-custom error" data-listing-id="{{listing._id}}">
+{{/deadlineNotPassed}}
+
+<td>{{listing.employer.company}}</td>
+<td>{{listing.title}}</td>
+<td>{{formatDate listing.deadline}}</td>
+
+{{#equal submitTime undefined}}
+  <td></td>
+{{else}}
+  <td>{{formatDate submitTime}}</td>
+{{/equal}}
+
+<td>{{interpretState state}}</td>
+
+</tr>

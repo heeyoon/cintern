@@ -1,0 +1,218 @@
+/**
+ * @author: Lynda Tang and Jennifer Wu
+ */
+body {
+  padding: 50px;
+}
+
+#main-container {
+  height: 100%;
+}
+
+.login-area {
+  position:absolute; 
+  right:50px; 
+}
+
+a {
+  color: #4F8C8C;
+}
+
+.clickable{
+  cursor: pointer;
+}
+
+.clickable-headers th{
+  cursor: pointer;
+}
+
+.unclickable{
+  color: #A8A8A8;
+  cursor: default;
+}
+
+.error{
+  color:#AF0D0D;
+}
+
+.required{
+  color: #AF0D0D;
+}
+
+textarea {
+  resize:none;
+}
+
+.modal .modal-body {
+    max-height: 540px;
+    overflow-y: auto;
+    background-color: rgba(254, 254, 245, 0.8);
+}
+
+.modal-content {
+  background-color: rgba(254, 254, 245, 0.9);
+}
+
+.modal-backdrop {
+  background-color: rgba(254, 254, 245, 0.8)
+}
+
+.scrollable-menu {
+    height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+#datetimepicker1 {
+  z-index: 9990;
+}
+
+/* Star and unstar buttons */
+.btn-default.unstar-custom-btn {
+  margin-left: 0px;
+  border: none;
+} 
+
+.btn-default.star-custom-btn {
+  margin-left: 0px;
+  border: none;
+}
+
+.star {
+  color: #FFBB33;
+  font-size: 25px;
+}
+
+.unstar {
+  color: #A8A8A8;
+  font-size: 25px;
+}
+
+.small-star {
+  font-size:18px;
+}
+
+.star-applicant-cell:hover .unstar {
+  color: #FFBB33;
+}
+
+/* Change button colors */
+.btn-default{
+  background: rgba(254, 254, 245, 0.9);
+}
+
+.btn-default:hover, .btn-default:focus, .btn-default:active, .btn-default.active, .open > .dropdown-toggle.btn-default {
+  background: rgba(254, 254, 245, 0.9);
+}
+
+.btn-primary{
+  background: #61ACAC;
+  border: 1px solid #579B9B;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+  background: #4F8C8C;
+  border: 1px solid #579B9B;
+}
+
+.btn-primary.disabled, .btn-primary.disabled.active, .btn-primary.disabled.focus, .btn-primary.disabled:active, .btn-primary.disabled:focus, .btn-primary.disabled:hover, .btn-primary[disabled], .btn-primary[disabled].active, .btn-primary[disabled].focus, .btn-primary[disabled]:active, .btn-primary[disabled]:focus, .btn-primary[disabled]:hover, fieldset[disabled] .btn-primary, fieldset[disabled] .btn-primary.active, fieldset[disabled] .btn-primary.focus, fieldset[disabled] .btn-primary:active, fieldset[disabled] .btn-primary:focus, fieldset[disabled] .btn-primary:hover {
+  border: 1px solid #579B9B;
+}
+
+
+.panel-group .panel-body {
+    background-color: rgba(254, 254, 245, 0.9);
+}
+
+/* Dropdown on hover */
+/* Borrowed from http://schier.co/blog/2014/10/23/creating-a-pure-css-dropdown-using-the-hover-selector.html */
+.dropdown-hover {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-hover .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    margin: 0;
+}
+
+.dropdown-hover:hover .dropdown-menu {
+    display: block;
+}
+
+
+/* background handling */
+/* Borrowed from  copied from https://css-tricks.com/perfect-full-page-background-image/ */
+img.bg {
+  min-height: 100%;
+  min-width: 1024px;
+  width: 100%;
+  height: auto;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -9999
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.layer {
+  background-color: rgba(254, 254, 245, 0.8);
+  height: auto;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom:50px;
+}
+
+
+/* centering trick */
+/* Borrowed from http://stackoverflow.com/questions/20142606/in-a-bootstrap-responsive-page-how-to-center-a-div */
+html, body, .container-table {
+    height: 100%;
+}
+.container-table {
+    display: table;
+}
+.vertical-center-row {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+
+/* tooltips */
+/* Borrowed from http://stackoverflow.com/questions/28628391/add-a-tooltip-javascript-without-jquery */
+[tooltip]:before {
+    /* needed - do not touch */
+    content: attr(tooltip);
+    position: absolute;
+    opacity: 0;
+    
+    /* customizable */
+    transition: all 0.15s ease;
+    padding: 10px;
+    color: #333;
+    border-radius: 10px;
+    box-shadow: 2px 2px 1px silver;    
+}
+
+[tooltip]:hover:before {
+    /* needed - do not touch */
+    opacity: 1;
+    font-size: 12px;
+    
+    /* customizable */
+    background: rgba(254, 254, 245, .9);
+    margin-top: -50px;
+    z-index:999;
+}
+
+[tooltip]:not([tooltip-persistent]):before {
+    pointer-events: none;
+}
