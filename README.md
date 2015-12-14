@@ -1,7 +1,5 @@
 Website: http://cintern.herokuapp.com/
 
-When signing up as an employer, a verification is emailed out to cintern1234@gmail.com. In order to test, you can use the account cintern1234@gmail.com with password 1234cintern to verify the new employer account.
-
 File ownership
 
 controllers 
